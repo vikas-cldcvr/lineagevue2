@@ -8,9 +8,7 @@ Vue.config.productionTip = false;
 
 import("@cldcvr/flow-core").then(async () => {
   await import("@cldcvr/flow-system-icon");
-  await import(
-    "@cldcvr/flow-lineage"
-  );
+  await import("@cldcvr/flow-lineage");
   await import("@cldcvr/flow-form-builder");
   new Vue({
     render: (h) => h(App),
