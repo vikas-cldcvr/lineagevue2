@@ -1,29 +1,24 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-  </div>
+  <f-div id="app" height="100%" width="100%" state="default">
+    <FlowFormBuilder />
+  </f-div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
-
+// import FlowLineage from "./components/FlowLineage.vue";
+import FlowFormBuilder from "./components/FlowFormBuilder.vue";
 export default Vue.extend({
   name: "App",
   components: {
-    HelloWorld,
+    // FlowLineage,
+    FlowFormBuilder,
   },
 });
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "@cldcvr/flow-core/dist/style.css";
+@import "@cldcvr/flow-lineage/dist/style.css";
+@import "@cldcvr/flow-form-builder/dist/style.css";
 </style>
