@@ -9,7 +9,7 @@ Vue.config.productionTip = false;
 import("@cldcvr/flow-core").then(async () => {
   await import("@cldcvr/flow-system-icon");
   await import(
-    "./../../flow-lineage/packages/@cldcvr/flow-lineage/dist/flow-lineage.es.js"
+    "@cldcvr/flow-lineage"
   );
   await import("@cldcvr/flow-form-builder");
   new Vue({
