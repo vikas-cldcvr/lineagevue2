@@ -52,6 +52,7 @@ export default defineComponent({
         },
         groups: {
           ["Group 7 New"]: {
+            type: "object",
             direction: "horizontal",
             isCollapsible: false,
             isCollapsed: true,
@@ -82,9 +83,11 @@ export default defineComponent({
             },
           },
           group1: {
+            type: "array",
             direction: "horizontal",
             isCollapsible: false,
             isCollapsed: true,
+            canDuplicate: true,
             label: {
               title: "Group 1",
               description: "This is Group 1",
@@ -120,8 +123,11 @@ export default defineComponent({
             },
           },
           group2: {
+            type: "object",
             showWhen: (formValues: FormBuilderValues) => {
-              return formValues?.group1?.xyz === "show";
+              return (
+                (formValues?.group1 as Record<string, unknown>).xyz === "show"
+              );
             },
             fields: {
               username: {
@@ -140,7 +146,10 @@ export default defineComponent({
                   },
                 ],
                 showWhen: (formValues: FormBuilderValues) => {
-                  return formValues?.group2?.username === "abc";
+                  return (
+                    (formValues?.group2 as Record<string, unknown>).username ===
+                    "abc"
+                  );
                 },
               },
               lastname: {
@@ -163,6 +172,7 @@ export default defineComponent({
             },
           },
           group3: {
+            type: "object",
             direction: "vertical",
             gap: "medium",
             label: {
@@ -191,6 +201,7 @@ export default defineComponent({
             },
           },
           group4: {
+            type: "object",
             direction: "vertical",
             label: {
               title: "Textarea",
@@ -214,6 +225,7 @@ export default defineComponent({
             },
           },
           group5: {
+            type: "object",
             direction: "vertical",
             gap: "medium",
             label: {
@@ -242,6 +254,7 @@ export default defineComponent({
             },
           },
           group6: {
+            type: "object",
             direction: "vertical",
             gap: "medium",
             label: {
@@ -262,7 +275,12 @@ export default defineComponent({
           },
         },
       },
-      values: { group1: { abc: "abc" } },
+      values: {
+        group1: [
+          { abc: "abc", xyz: "234" },
+          { abc: "2nd value", xyz: " 2nd xyz" },
+        ],
+      },
       state: null,
     };
   },
@@ -272,9 +290,10 @@ export default defineComponent({
     },
     handleStateChange(event: CustomEvent) {
       this.state = event.detail as FormBuilderState;
+      console.log(this.state.isValid);
     },
     handleInput(event: CustomEvent) {
-      this.values = event.detail as FormBuilderValues;
+      // this.values = event.detail as FormBuilderValues;
     },
   },
 });

@@ -147,14 +147,15 @@ export default defineComponent({
     );
     setInterval(() => {
       this.updateCounter += 1;
-
-      if (this.nodes.rdj?.templateData)
+      //   this.nodes = { ...this.nodes };
+      if (this.nodes.rdj?.templateData) {
         this.nodes.rdj.templateData.fullName = `Vikas ${this.updateCounter}`;
+      }
 
       if (this.nodes.rdj.children) {
         this.nodes.rdj.children.rdj_child.templateData.title = `Hello ${this.updateCounter}`;
       }
-    }, 1000);
+    }, 5000);
   },
 });
 </script>

@@ -1,18 +1,24 @@
 <template>
   <f-div id="app" height="100%" width="100%" state="default">
-    <FlowFormBuilder />
+    <FlowLineage v-if="view === 'lineage'" />
+    <FlowFormBuilder v-if="view === 'formbuilder'" />
   </f-div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-// import FlowLineage from "./components/FlowLineage.vue";
+import FlowLineage from "./components/FlowLineage.vue";
 import FlowFormBuilder from "./components/FlowFormBuilder.vue";
 export default Vue.extend({
   name: "App",
   components: {
-    // FlowLineage,
+    FlowLineage,
     FlowFormBuilder,
+  },
+  data() {
+    return {
+      view: "formbuilder",
+    };
   },
 });
 </script>

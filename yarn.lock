@@ -217,10 +217,10 @@
     rxjs "^7.5.7"
     validate-color "^2.2.1"
 
-"@cldcvr/flow-core@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@cldcvr/flow-core/-/flow-core-1.2.0.tgz#dd1388cd720f00fcefd969cf81a9b066be75b39c"
-  integrity sha512-iDlldmijbXK3ADN4x/+A4WCaBrEB9xZ+hC0omy5FSULrCTROlndHEnfH5rNTzn9lMStJ+jRkmmSO3doni8GSRg==
+"@cldcvr/flow-core@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@cldcvr/flow-core/-/flow-core-1.3.1.tgz#14dfc1ac168556059417a4e3f502c0a88af27aca"
+  integrity sha512-qb7blNLhzFnPvri0OHrf+uZ8NhZGdg+8+V9SdgQTP4tZBbjBQoL/Y1zdtiQjTjq6ddUbhcnilRuEdu+FHOa2EA==
   dependencies:
     "@floating-ui/dom" "^1.0.2"
     axios "^0.27.2"
@@ -228,18 +228,18 @@
     rxjs "^7.5.7"
     validate-color "^2.2.1"
 
-"@cldcvr/flow-form-builder@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@cldcvr/flow-form-builder/-/flow-form-builder-0.1.0.tgz#a5746e7ac7de7a14c76b261099eb2233dba90912"
-  integrity sha512-NH7q9eDoSF8Y8FLnUUjOTM1qWC5ZZLExsafCUwLVuyfIGVClOKp0RGoTzZDTDJfSIbxCATYW7iPHrTfR+mIfOw==
+"@cldcvr/flow-form-builder@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@cldcvr/flow-form-builder/-/flow-form-builder-1.0.0.tgz#af52d7ce8eca7a11001ccff52ee5470a080d53e5"
+  integrity sha512-DMeUDC0fVK5Qh+Dfbv7kb8vCDfi9fupmUN8FSV3bFNNLqxGnBj/l3DTiieG3PYLh4iQ2k5aDvE96CxAKkJy31g==
   dependencies:
-    "@cldcvr/flow-core" "*"
     lit "^2.2.4"
+    lodash "^4.17.21"
 
-"@cldcvr/flow-lineage@^1.2.3":
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/@cldcvr/flow-lineage/-/flow-lineage-1.2.3.tgz#8bab6bc18af4233ab4ae790a95420442dfb8b851"
-  integrity sha512-xRppkcA5oBP1zWa5KDzzDGRCJPSpEdLDj+KodU/90pj857c2eL6TMs7Iff3ZitrpVyW/ROHoxPEKYB4430yKbQ==
+"@cldcvr/flow-lineage@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@cldcvr/flow-lineage/-/flow-lineage-1.3.1.tgz#c9c47a633b6da9d7518da0662bda3f9c30a0fd52"
+  integrity sha512-1YnMLzM1SIAz5sEmYgGFoU+CSVk2IWeykAoadsWlgm3mvW0OFBe27f5SQ+5TT5+YrEM/kp92Mseq4VY2kc6flQ==
   dependencies:
     "@cldcvr/flow-core" "1.1.7"
     d3 "^7.6.1"
