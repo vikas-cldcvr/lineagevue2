@@ -1,22 +1,21 @@
 <template>
-  <f-div padding="large">
-    <f-div>
-      <f-form-builder
-        :config.prop="config"
-        :values.prop="values"
-        @submit="handleSubmit"
-        @stateChange="handleStateChange"
-        @input="handleInput"
-      >
-        <f-button
-          :disabled="state?.isValid ? false : true"
-          label="Submit"
-          type="submit"
-        ></f-button>
-      </f-form-builder>
-    </f-div>
-    <f-div>
-      <pre>{{ values }}</pre>
+  <f-div padding="large" height="100%" overflow="scroll">
+    <f-form-builder
+      ref="form"
+      :field.prop="field"
+      @submit="handleSubmit"
+      @stateChange="handleStateChange"
+      @input="handleInput"
+    >
+      <f-button
+        :disabled="state?.isValid ? false : true"
+        label="Submit"
+        type="submit"
+      ></f-button>
+    </f-form-builder>
+
+    <f-div height="100%" overflow="scroll">
+      <pre>{{ value }}</pre>
     </f-div>
     <f-div>
       <pre>{{ state?.isValid }}</pre>
@@ -25,264 +24,184 @@
 </template>
 <script lang="ts">
 import {
-  FormBuilderValues,
-  FormBuilderConfig,
+  FormBuilderField,
   FormBuilderState,
+  FormBuilderValue,
+  FFormBuilder,
 } from "@cldcvr/flow-form-builder";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "FlowFormBuilder",
   data(): {
-    config: FormBuilderConfig;
+    field: FormBuilderField;
     state: FormBuilderState | null;
-    values: FormBuilderValues;
+    value: FormBuilderValue | undefined;
   } {
     return {
-      config: {
-        gap: "large",
-        groupSeparator: true,
-        fieldSize: "small",
-        variant: "round",
-        category: "fill",
-        label: {
-          title: "Form",
-          description: "This is a form description",
-          iconTooltip: "Hello",
-        },
-        groups: {
-          ["Group 7 New"]: {
-            type: "object",
-            direction: "horizontal",
-            isCollapsible: false,
-            isCollapsed: true,
-            fields: {
-              select: {
-                selection: "multiple",
-                options: ["option 1", "option 2", "option 3"],
-                type: "select",
-                placeholder: "This is a placeholder",
-                iconLeft: "i-app",
-                disabled: false,
-                clear: true,
-                validationRules: [
-                  {
-                    name: "required",
-                  },
-                ],
+      field: {
+        type: "object",
+        direction: "vertical",
+        fieldSeparator: true,
+        fields: {
+          selectBox: {
+            selection: "multiple",
+            options: ["option 1", "option 2", "option 3"],
+            type: "select",
+            placeholder: "This is a placeholder",
+            iconLeft: "i-app",
+            disabled: false,
+            clear: true,
+            validationRules: [
+              {
+                name: "required",
               },
-              xyz: {
-                type: "text",
-                helperText: "This field is a required field",
-                validationRules: [
-                  {
-                    name: "required",
-                  },
-                ],
+            ],
+          },
+          textField: {
+            type: "text",
+            helperText: "This field is a required field",
+            validationRules: [
+              {
+                name: "required",
               },
+            ],
+          },
+          eventTestField: {
+            type: "text",
+            helperText: "This field is a required field",
+            validationRules: [
+              {
+                name: "required",
+              },
+            ],
+            showWhen: (values) => {
+              return (values as Record<string, string>)?.textField === "vikas";
+            },
+            onClick: (event: PointerEvent) => {
+              console.log("onClick callback triggered", event);
+            },
+            onInput: (event: Event) => {
+              console.log("onInput callback triggered", event);
+            },
+            onFocus: (event: FocusEvent) => {
+              console.log("onFocus callback triggered", event);
+            },
+            onKeyPress: (event: KeyboardEvent) => {
+              console.log("onKeyPress callback triggered", event);
+            },
+            onKeyDown: (event: KeyboardEvent) => {
+              console.log("onKeyDown callback triggered", event);
+            },
+            onKeyUp: (event: KeyboardEvent) => {
+              console.log("onKeyUp callback triggered", event);
+            },
+            onMouseOver: (event: MouseEvent) => {
+              console.log("onMouseOver callback triggered", event);
             },
           },
-          group1: {
-            type: "array",
-            direction: "horizontal",
-            isCollapsible: false,
-            isCollapsed: true,
-            canDuplicate: true,
+          switchButton: {
+            type: "switchButton",
+            validationRules: [
+              {
+                name: "required",
+              },
+            ],
+          },
+          radio: {
+            type: "radio",
             label: {
-              title: "Group 1",
-              description: "This is Group 1",
-              iconTooltip: "Hello",
+              title: "Radios",
             },
-            fields: {
-              abc: {
-                type: "text",
-                placeholder: "This is a placeholder",
-                autoComplete: false, // to disabled browser's auto-complete behavior
-                iconLeft: "i-app",
-                prefix: "+91",
-                maxLength: 100,
-                loading: false,
-                disabled: false,
-                readonly: false,
-                clear: true,
-                validationRules: [
-                  {
-                    name: "required",
-                  },
-                ],
+            // helperText: "This field is required",
+            options: [
+              { id: "1", title: "Orange", iconTooltip: "hello" },
+              {
+                id: "2",
+                title: "Banana",
+                iconTooltip: "hello",
               },
-              xyz: {
-                type: "text",
-                helperText: "This field is a required field",
-                validationRules: [
-                  {
-                    name: "required",
-                  },
-                ],
+            ],
+            validationRules: [
+              {
+                name: "required",
               },
-            },
+            ],
           },
-          group2: {
-            type: "object",
-            showWhen: (formValues: FormBuilderValues) => {
-              return (
-                (formValues?.group1 as Record<string, unknown>).xyz === "show"
-              );
+
+          checkboxField: {
+            type: "checkbox",
+            direction: "horizontal",
+            label: {
+              title: "Check/Uncheck options",
+              description: "this my checkbox",
             },
+            // helperText: "This field is required",
+            options: [
+              { id: "1", title: "Orange", iconTooltip: "hello" },
+              {
+                id: "2",
+                title: "Banana",
+                iconTooltip: "hello",
+              },
+            ],
+            validationRules: [
+              {
+                name: "required",
+              },
+            ],
+          },
+          textAreaField: {
+            type: "textarea",
+            placeholder: "This is a placeholder",
+            maxLength: 100,
+            disabled: false,
+            readonly: false,
+            clear: true,
+            validationRules: [
+              {
+                name: "required",
+              },
+            ],
+          },
+          nestedObject: {
+            type: "object",
             fields: {
               username: {
                 type: "text",
-                validationRules: [
-                  {
-                    name: "required",
-                  },
-                ],
+                validationRules: [{ name: "required" }],
               },
               email: {
-                type: "email",
-                validationRules: [
-                  {
-                    name: "required",
-                  },
-                ],
-                showWhen: (formValues: FormBuilderValues) => {
-                  return (
-                    (formValues?.group2 as Record<string, unknown>).username ===
-                    "abc"
-                  );
-                },
-              },
-              lastname: {
                 type: "text",
-                validationRules: [
-                  {
-                    name: "required",
-                    when: ["click"],
-                    message: "The {{name}} is mandatory",
-                  },
-                  {
-                    name: "custom",
-                    message: "{{value}} is not available",
-                    validate: (value: unknown) => {
-                      return value !== "vikas";
-                    },
-                  },
-                ],
+                validationRules: [{ name: "required" }, { name: "email" }],
               },
             },
           },
-          group3: {
-            type: "object",
-            direction: "vertical",
-            gap: "medium",
-            label: {
-              title: "Group 3",
-              description: "This is Group 3",
-              iconTooltip: "Hello",
-            },
-            fields: {
-              checkbox: {
-                type: "checkbox",
-                // helperText: "This field is required",
-                options: [
-                  { id: "1", title: "Orange", iconTooltip: "hello" },
-                  {
-                    id: "2",
-                    title: "Banana",
-                    iconTooltip: "hello",
-                  },
-                ],
-                validationRules: [
-                  {
-                    name: "required",
-                  },
-                ],
-              },
+          nestedArray: {
+            type: "array",
+            field: {
+              type: "text",
+              validationRules: [
+                {
+                  name: "required",
+                },
+              ],
             },
           },
-          group4: {
-            type: "object",
-            direction: "vertical",
-            label: {
-              title: "Textarea",
-              description: "This is A textarea",
-              iconTooltip: "Hello",
-            },
-            fields: {
-              texthere: {
-                type: "textarea",
-                placeholder: "This is a placeholder",
-                maxLength: 100,
-                disabled: false,
-                readonly: false,
-                clear: true,
-                validationRules: [
-                  {
-                    name: "required",
-                  },
-                ],
-              },
-            },
-          },
-          group5: {
-            type: "object",
-            direction: "vertical",
-            gap: "medium",
-            label: {
-              title: "Group 5",
-              description: "This is Group 5",
-              iconTooltip: "Hello",
-            },
-            fields: {
-              radio: {
-                type: "radio",
-                // helperText: "This field is required",
-                options: [
-                  { id: "1", title: "Orange", iconTooltip: "hello" },
-                  {
-                    id: "2",
-                    title: "Banana",
-                    iconTooltip: "hello",
-                  },
-                ],
-                validationRules: [
-                  {
-                    name: "required",
-                  },
-                ],
-              },
-            },
-          },
-          group6: {
-            type: "object",
-            direction: "vertical",
-            gap: "medium",
-            label: {
-              title: "Group 6",
-              description: "This is Group 6",
-              iconTooltip: "Hello",
-            },
-            fields: {
-              switchButton: {
-                type: "switchButton",
-                validationRules: [
-                  {
-                    name: "required",
-                  },
-                ],
-              },
-            },
+          getButton: {
+            type: "button",
+            label: "get",
+            iconLeft: "i-arrow-rotate",
           },
         },
       },
-      values: {
-        group1: [
-          { abc: "abc", xyz: "234" },
-          { abc: "2nd value", xyz: " 2nd xyz" },
-        ],
-      },
+      value: { textField: "vikas" },
       state: null,
     };
+  },
+  mounted() {
+    if (this.$refs["form"])
+      (this.$refs["form"] as FFormBuilder).value = this.value;
   },
   methods: {
     handleSubmit(event: CustomEvent) {
@@ -290,11 +209,17 @@ export default defineComponent({
     },
     handleStateChange(event: CustomEvent) {
       this.state = event.detail as FormBuilderState;
-      console.log(this.state.isValid);
+      // console.log(this.state.isValid);
     },
     handleInput(event: CustomEvent) {
-      // this.values = event.detail as FormBuilderValues;
+      console.log(event.detail);
+      this.value = event.detail as FormBuilderValue;
     },
   },
 });
 </script>
+<style>
+f-form-builder {
+  overflow: auto;
+}
+</style>
