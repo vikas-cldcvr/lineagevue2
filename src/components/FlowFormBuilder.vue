@@ -3,6 +3,7 @@
     <f-form-builder
       ref="form"
       :field.prop="field"
+      :values.prop="values"
       @submit="handleSubmit"
       @stateChange="handleStateChange"
       @input="handleInput"
@@ -15,7 +16,7 @@
     </f-form-builder>
 
     <f-div height="100%" overflow="scroll">
-      <pre>{{ value }}</pre>
+      <pre>{{ values }}</pre>
     </f-div>
     <f-div>
       <pre>{{ state?.isValid }}</pre>
@@ -26,8 +27,7 @@
 import {
   FormBuilderField,
   FormBuilderState,
-  FormBuilderValue,
-  FFormBuilder,
+  FormBuilderValues,
 } from "@cldcvr/flow-form-builder";
 import { defineComponent } from "vue";
 
@@ -36,7 +36,7 @@ export default defineComponent({
   data(): {
     field: FormBuilderField;
     state: FormBuilderState | null;
-    value: FormBuilderValue | undefined;
+    values: FormBuilderValues | undefined;
   } {
     return {
       field: {
@@ -195,13 +195,9 @@ export default defineComponent({
           },
         },
       },
-      value: { textField: "vikas" },
+      values: { textField: "vikas" },
       state: null,
     };
-  },
-  mounted() {
-    if (this.$refs["form"])
-      (this.$refs["form"] as FFormBuilder).value = this.value;
   },
   methods: {
     handleSubmit(event: CustomEvent) {
@@ -213,7 +209,7 @@ export default defineComponent({
     },
     handleInput(event: CustomEvent) {
       console.log(event.detail);
-      this.value = event.detail as FormBuilderValue;
+      this.values = event.detail as FormBuilderValues;
     },
   },
 });
