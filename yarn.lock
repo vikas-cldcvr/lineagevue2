@@ -207,7 +207,7 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
-"@cldcvr/flow-core@*", "@cldcvr/flow-core@^1.3.3":
+"@cldcvr/flow-core@*":
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/@cldcvr/flow-core/-/flow-core-1.3.4.tgz#7600834ffb049746377c50c07bd6a14e9c0b7200"
   integrity sha512-NLixBlA3WqaBNt9JxE1vjTtuCead06clfJcB0JZXwme6UkjBsg6vZGyw1XOmAz7Ec9AlTdWv4kVPTZPXqPxPbw==
@@ -229,13 +229,26 @@
     rxjs "^7.5.7"
     validate-color "^2.2.1"
 
-"@cldcvr/flow-form-builder@^1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@cldcvr/flow-form-builder/-/flow-form-builder-1.1.4.tgz#08a129245d957773a8221270b1308cca2007110f"
-  integrity sha512-qxbvnR0KJJKJWfb7cpiF7nRy6yLRnovunnBXRTfR6jyNxwD3qkp0TlpxXAco7LGtDqZxAe/wWyGOxu5KhH2gog==
+"@cldcvr/flow-core@^1.6.4":
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/@cldcvr/flow-core/-/flow-core-1.6.4.tgz#7c072ce64fe752646d2abda1650cbaf1969ce6a7"
+  integrity sha512-mLxR0cqfkpKlVzc6EfqC7lf88UcAT5bIOrdb/+wJWy48CMeN7nkGDi+5G2OfKxgQd+OBB4bGuMymsjv7SwZGvQ==
+  dependencies:
+    "@emoji-mart/data" "^1.1.2"
+    "@floating-ui/dom" "^1.0.2"
+    axios "^0.27.2"
+    emoji-mart "^5.5.2"
+    lit "^2.2.4"
+    rxjs "^7.5.7"
+    validate-color "^2.2.1"
+
+"@cldcvr/flow-form-builder@^1.4.4":
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/@cldcvr/flow-form-builder/-/flow-form-builder-1.4.4.tgz#1a11efae20a23514c09c8a5efb16581d0797deb7"
+  integrity sha512-AbFtCrFGudCdWNygre1ar5CIkiCbtOfVRlpmc+jXBYZ+27Bl0muM/feGCkKF25n17oIBLb85MxBexFSf+Vuaig==
   dependencies:
     lit "^2.2.4"
-    lodash "^4.17.21"
+    lodash-es "^4.17.21"
     rxjs "^7.8.0"
 
 "@cldcvr/flow-lineage@^1.3.1":
@@ -258,6 +271,11 @@
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
+
+"@emoji-mart/data@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@emoji-mart/data/-/data-1.1.2.tgz#777c976f8f143df47cbb23a7077c9ca9fe5fc513"
+  integrity sha512-1HP8BxD2azjqWJvxIaWAMyTySeZY0Osr83ukYjltPVkNXeJvTz7yDrPLBtnrD5uqJ3tg4CcLuuBW09wahqL/fg==
 
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
@@ -2253,6 +2271,11 @@ electron-to-chromium@^1.4.284:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.302.tgz#5770646ffe7051677b489226144aad9386d420f2"
   integrity sha512-Uk7C+7aPBryUR1Fwvk9VmipBcN9fVsqBO57jV2ZjTm+IZ6BMNqu7EDVEg2HxCNufk6QcWlFsBkhQyQroB2VWKw==
 
+emoji-mart@^5.5.2:
+  version "5.5.2"
+  resolved "https://registry.yarnpkg.com/emoji-mart/-/emoji-mart-5.5.2.tgz#3ddbaf053139cf4aa217650078bc1c50ca8381af"
+  integrity sha512-Sqc/nso4cjxhOwWJsp9xkVm8OF5c+mJLZJFoFfzRuKO+yWiN7K8c96xmtughYb0d/fZ8UC6cLIQ/p4BR6Pv3/A==
+
 emoji-regex@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
@@ -3471,6 +3494,11 @@ locate-path@^5.0.0:
   integrity sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==
   dependencies:
     p-locate "^4.1.0"
+
+lodash-es@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
+  integrity sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==
 
 lodash.defaultsdeep@^4.6.1:
   version "4.6.1"

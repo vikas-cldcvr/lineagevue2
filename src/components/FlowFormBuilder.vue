@@ -75,7 +75,7 @@ export default defineComponent({
                 name: "required",
               },
             ],
-            showWhen: (values) => {
+            showWhen: (values: FormBuilderValues) => {
               return (values as Record<string, string>)?.textField === "vikas";
             },
             onClick: (event: PointerEvent) => {
@@ -179,6 +179,9 @@ export default defineComponent({
           },
           nestedArray: {
             type: "array",
+            label: {
+              title: "Nested array",
+            },
             field: {
               type: "text",
               validationRules: [
