@@ -5,7 +5,7 @@
       :field.prop="field"
       :values.prop="values"
       @submit="handleSubmit"
-      @stateChange="handleStateChange"
+      @state-change="handleStateChange"
       @input="handleInput"
     >
       <f-button
@@ -19,7 +19,7 @@
       <pre>{{ values }}</pre>
     </f-div>
     <f-div>
-      <pre>{{ state?.isValid }}</pre>
+      <pre>{{ state }}</pre>
     </f-div>
   </f-div>
 </template>
@@ -208,10 +208,10 @@ export default defineComponent({
     },
     handleStateChange(event: CustomEvent) {
       this.state = event.detail as FormBuilderState;
-      // console.log(this.state.isValid);
+      console.log(this.state);
     },
     handleInput(event: CustomEvent) {
-      console.log(event.detail);
+      // console.log(event.detail);
       this.values = event.detail as FormBuilderValues;
     },
   },

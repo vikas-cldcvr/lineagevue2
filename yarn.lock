@@ -229,10 +229,10 @@
     rxjs "^7.5.7"
     validate-color "^2.2.1"
 
-"@cldcvr/flow-core@^1.6.4":
-  version "1.6.4"
-  resolved "https://registry.yarnpkg.com/@cldcvr/flow-core/-/flow-core-1.6.4.tgz#7c072ce64fe752646d2abda1650cbaf1969ce6a7"
-  integrity sha512-mLxR0cqfkpKlVzc6EfqC7lf88UcAT5bIOrdb/+wJWy48CMeN7nkGDi+5G2OfKxgQd+OBB4bGuMymsjv7SwZGvQ==
+"@cldcvr/flow-core@^1.6.5":
+  version "1.6.5"
+  resolved "https://registry.yarnpkg.com/@cldcvr/flow-core/-/flow-core-1.6.5.tgz#ccc90148d466a17f801aaab6763cf51447d80ce9"
+  integrity sha512-m4jVxa5AURVTMAx9ZC6CJZqlb52B6jLA2Qb0QsNLOwN4zZkgR3Q1ZpxuNDlhXOb4z0rBYV/VCZacQQLxkhWKHg==
   dependencies:
     "@emoji-mart/data" "^1.1.2"
     "@floating-ui/dom" "^1.0.2"
@@ -242,10 +242,10 @@
     rxjs "^7.5.7"
     validate-color "^2.2.1"
 
-"@cldcvr/flow-form-builder@^1.4.4":
-  version "1.4.4"
-  resolved "https://registry.yarnpkg.com/@cldcvr/flow-form-builder/-/flow-form-builder-1.4.4.tgz#1a11efae20a23514c09c8a5efb16581d0797deb7"
-  integrity sha512-AbFtCrFGudCdWNygre1ar5CIkiCbtOfVRlpmc+jXBYZ+27Bl0muM/feGCkKF25n17oIBLb85MxBexFSf+Vuaig==
+"@cldcvr/flow-form-builder@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@cldcvr/flow-form-builder/-/flow-form-builder-1.5.0.tgz#4324903d2e2fc7c0336f2085ca88e2f0f8236f72"
+  integrity sha512-GpehvE8eNHTZ6tvgAndJJO9ipKxzgEbR4Q+wlWECkZBfw4vahrjOa4U4+K9ZH6xb45ltEEoJ55EVL4cAdO76Kg==
   dependencies:
     lit "^2.2.4"
     lodash-es "^4.17.21"
